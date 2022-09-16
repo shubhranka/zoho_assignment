@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
+
 import "./index.css"; 
-const MyInput = () => {
+
+const CircleInput = () => {
     const [value, setValue] = useState("");
     
     const handleChange = (e) => {
@@ -9,9 +11,10 @@ const MyInput = () => {
     };
     
     return (
-        <div className="myinput">
+        <div className="circle-input">
             <span className="search-icon"><BsSearch/></span>
             <input
+            className="circle-input-field"
             type="text"
             value={value}
             onChange={handleChange}
@@ -21,4 +24,4 @@ const MyInput = () => {
     );
 }
 
-export default MyInput;
+export default CircleInput;

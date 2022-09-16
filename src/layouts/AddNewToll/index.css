@@ -1,0 +1,15 @@
+.form-group div{
+    width: 100%;
+}
+
+.vehicle-fare-details > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vehicle-fare-details .type {
+    width: 50%;
+    font-weight: 700;
+}

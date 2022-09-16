@@ -1,6 +1,7 @@
 import {BsFilterRight} from 'react-icons/bs';
-import MyInput from '../../components/MyInput';
+
 import SideButton from '../../components/SideButton';
+import CircleInput from '../CircleInput';
 import "./index.css";
 const Bar = () => {
     return (
@@ -8,7 +9,7 @@ const Bar = () => {
             <div className="left">
                 <h4>Toll entries/Vehicle</h4>
                 <span><BsFilterRight size={"1.4rem"} color={"#999"}/></span>
-                <MyInput/>
+                <CircleInput/>
             </div>
             <div className="right">
                 <SideButton text={"Add new toll"}/>

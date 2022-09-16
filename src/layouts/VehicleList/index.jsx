@@ -1,5 +1,7 @@
-import Bar from "../../containers/Bar";
+import Bar from "../../components/Bar";
 import VehicleTable from "../../containers/VehicleTable";
+import AddNewToll from "../AddNewToll";
+import AddNewVehicle from "../AddNewVehicle";
 
 const VehicleList = () => {
   return (
@@ -8,6 +10,8 @@ const VehicleList = () => {
       <div className="line-gray"></div>
       <Bar />
       <VehicleTable />
+      {/* <AddNewToll/> */}
+        {/* <AddNewVehicle/> */}
     </div>
   );
 };

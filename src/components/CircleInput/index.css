@@ -1,4 +1,4 @@
-input{
+.circle-input-field{
     width: 15rem;
     height: 100%;
     border: 1px solid #ccc;
@@ -9,12 +9,12 @@ input{
     padding-left: 2rem;
 }
 
-input::placeholder{
+.circle-input-field::placeholder{
     color: #999;
     font-size: smaller;
 }
 
-.myinput{
+.circle-input{
     height: 100%;
     position: relative;
 }
