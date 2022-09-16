@@ -1,8 +1,8 @@
 import "./index.css"
-const SideButton = (props) => {
+const SideButton = ({onClick,text}) => {
     return (
-        <div className="side-button">
-            {props.text}
+        <div className="side-button" onClick={onClick}>
+            {text}
         </div>
     );
 };

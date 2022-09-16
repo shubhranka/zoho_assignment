@@ -1,14 +1,13 @@
 import "./index.css";
-const VehicleTable = () => {
+import { useSelector } from "react-redux";
+const Table = ({ headers }) => {
     return (
         <table className="vehicle-table">
             <thead>
                 <tr>
-                    <th>Vehicle Type</th>
-                    <th>Vehicle Number</th>
-                    <th>Date Time</th>
-                    <th>Toll Name</th>
-                    <th>Tarrif</th>
+                    {headers.map((header, index) => {
+                        return <th key={index}>{header}</th>;
+                    })}
                 </tr>
             </thead>
             <tbody>
@@ -31,4 +30,4 @@ const VehicleTable = () => {
     );
 };
 
-export default VehicleTable;
+export default Table;

@@ -1,9 +1,10 @@
 import './App.css';
-import VehicleList from './layouts/VehicleList';
+import Landing from './layouts/Landing';
+
 
 function App() {
   return (
-    <VehicleList/>
+    <Landing/>
   );
 }
 

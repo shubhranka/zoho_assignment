@@ -3,18 +3,18 @@ import {BsFilterRight} from 'react-icons/bs';
 import SideButton from '../../components/SideButton';
 import CircleInput from '../CircleInput';
 import "./index.css";
-const Bar = () => {
+const Bar = ({addVehicleClick,addNewTollClick,tollPage,tollClick}) => {
     return (
         <div className="bar">
             <div className="left">
-                <h4>Toll entries/Vehicle</h4>
-                <span><BsFilterRight size={"1.4rem"} color={"#999"}/></span>
+                <h4>{!tollPage?"Toll entries/Vehicle":"Toll Gate List"}</h4>
+                {!tollPage && <span><BsFilterRight size={"1.4rem"} color={"#999"}/></span>}
                 <CircleInput/>
             </div>
             <div className="right">
-                <SideButton text={"Add new toll"}/>
-                <SideButton text={"Add vehicle entry"}/>
-                <SideButton text={"View all tolls"}/>
+                <SideButton text={"Add new toll"} onClick={addNewTollClick}/>
+                <SideButton text={"Add vehicle entry"} onClick={addVehicleClick}/>
+                <SideButton text={tollPage?"Back to vehicle logs":"View all tolls"} onClick={tollClick} />
             </div>
         </div>
     );

@@ -1,16 +1,18 @@
-import { createSlice} from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const vehicleSlice = createSlice({
-  name: 'vehicle',
-  initialState: {
-  },
-  reducers: {
-    addVehicle: (state, action) => {
-        state[action.payload.id] = action.payload.type
-    }
-  }
-})
+    name: "vehicle",
+    initialState: {},
+    reducers: {
+        addVehicle: (state, action) => {
+            state[action.payload.vehicleNumber] = {
+                type: action.payload.vehicleType,
+                tolls: { [action.payload.tollName]: action.payload.dateTime },
+            };
+        },
+    },
+});
 
-export const vehicleActions = vehicleSlice.actions
+export const vehicleActions = vehicleSlice.actions;
 
-export default vehicleSlice.reducer
+export default vehicleSlice.reducer;

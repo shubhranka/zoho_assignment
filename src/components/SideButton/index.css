@@ -1,5 +1,6 @@
 .side-button{
     height: 100%;
+    width: 15rem;
     background-color: var(--button-blue);
     color: white;
     border: none;
