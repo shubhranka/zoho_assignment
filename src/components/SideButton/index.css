@@ -1,0 +1,15 @@
+.side-button{
+    height: 100%;
+    background-color: var(--button-blue);
+    color: white;
+    border: none;
+    margin: 0 1rem;
+    border-radius: 5px;
+    padding:0 2rem;
+    /* font-size: 800; */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

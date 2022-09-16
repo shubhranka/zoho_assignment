@@ -1,0 +1,41 @@
+.bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+}
+
+.left{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+.left > *{
+    margin-right: .5rem;
+}
+
+.right{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    flex-direction: row;    
+    align-items: center;
+}
+
+h4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left span{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
