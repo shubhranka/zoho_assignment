@@ -45,6 +45,10 @@ const tollsSlice = createSlice({
             const name = action.payload.name;    
             state[name] = {};
             state[name].tarrifs = action.payload.tarrifs;
+        },
+        deleteToll: (state, action) => {
+            const name = action.payload;
+            delete state[name];
         }
     }
 });

@@ -21,7 +21,6 @@ const AddNewVehicle = ({ onCloseClick }) => {
     );
     const typeDefault =
         validVehicleNumber && vehicles[vehicleNumber] !== undefined;
-    console.log(tolls, typeDefault, vehicles);
     const [tollName, setTollName] = useState(tollNames[0]);
     const [vehicleType, setVehicleType] = useState(
         typeDefault ? vehicles[vehicleNumber].type : "car"
@@ -42,10 +41,8 @@ const AddNewVehicle = ({ onCloseClick }) => {
             tarrif = tolls[tollName].tarrifs[vehicleType + "Single"];
         }
     }
-    console.log(typeDefault,vehicleType,"typeDefault");
     const handleAddNewVehicleSubmit = (e) => {
         e.preventDefault();
-        // console.log(vehicleNumber, tollName, vehicleType,tarrif,new Date());
         let dateTime = new Date();
         let payloadVehicle = null;
         let tarrif = "";
@@ -112,7 +109,6 @@ const AddNewVehicle = ({ onCloseClick }) => {
                     ) : (
                         <select name="type" id="type" onChange={(e)=>{
                             setVehicleType(e.target.value);
-                            console.log(e.target.value,"e.target.value");
                         }}>
                             <option value="car">Car/Jeep/Van</option>
                             <option value="lcv">LCV</option>

@@ -23,7 +23,26 @@
     font-weight: 600;
 }
 
+tr{
+    position: relative;
+}
 
-td{
-    width: 20%;
+.delteButton{
+    position: absolute;
+    right: -10rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    padding: .5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ff0000;
+    cursor: pointer;
+    opacity: .3;
+    transition: opacity .2s ;
+}
+
+.delteButton:hover{
+    opacity: 1;
+    transition: opacity .2s;
 }

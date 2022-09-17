@@ -8,7 +8,6 @@ import { tollsActions } from "../../store/reducers/tollsReducer";
 import "./index.css";
 const AddNewToll = ({onCloseClick}) => {
     const tolls = useSelector((state) => state.tollsReducer);
-    console.log(tolls)
     const [tollName,setTollName] = useState("");
     const error = tolls[tollName] !== undefined;
     const [carSingle,setCarSingle] = useState(null);
@@ -23,7 +22,6 @@ const AddNewToll = ({onCloseClick}) => {
     const handleAddNewTollSubmit = (e) => {
         e.preventDefault();
         if(!error){
-            console.log(tollName,carSingle,carReturn,lcvSingle,lcvReturn,truckSingle,truckReturn,heavySingle,heavyReturn);
             const payload = {
                 name:tollName,
                 tarrifs:{

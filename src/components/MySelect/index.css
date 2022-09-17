@@ -1,0 +1,22 @@
+.my-select{
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 1;
+    background-color: #fff;
+}
+.my-select__option{
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    /* box-sizing: border-box; */
+}
+
+.my-select__option:hover,.selected{
+    background-color: var(--button-blue);
+    color: #fff;
+}

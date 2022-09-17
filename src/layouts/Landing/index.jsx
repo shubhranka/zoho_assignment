@@ -24,6 +24,9 @@ class Landing extends Component {
             "Truck/Bus",
             "Heavy Vehicle",
         ],
+        filters:[],
+        searchText:"",
+        filterMenu:false,
     };
 
     setNewToll = () => {
@@ -61,6 +64,39 @@ class Landing extends Component {
         });
     };
 
+    setFilters = (f)=>{
+        const filters = this.state.filters;
+        const ind = filters.indexOf(f);
+        if(ind === -1){
+            filters.push(f);
+        }else{
+            filters.splice(ind,1);
+        }
+        this.setState({
+            filters
+        })
+    }
+    filterMenuHandler = (e) => {
+        // console.log(e)
+        if(!e.path.map(ele=>ele.className).includes("my-select")){
+            this.setFilterMenu();
+        }
+    }
+    setFilterMenu = () => {
+        if(!this.state.filterMenu){
+            this.setState({
+                filterMenu:true
+            });
+            setTimeout(()=>{
+                window.addEventListener("click",this.filterMenuHandler);
+            },50);
+        }else{
+            this.setState({
+                filterMenu:false
+            });
+            window.removeEventListener("click",this.filterMenuHandler);
+        }
+    }
     render() {
         return (
             <div>
@@ -71,8 +107,16 @@ class Landing extends Component {
                     addNewTollClick={this.setNewToll}
                     tollPage={this.state.tollPage}
                     tollClick={this.setPage}
+                    filters={this.state.filters}
+                    setFilters={this.setFilters}
+                    filterMenu={this.state.filterMenu}
+                    setFilterMenu={this.setFilterMenu}
+                    searchText={this.state.searchText}
+                    setSearchText={(text)=>this.setState({searchText:text})}
                 />
                 <Table
+                    searchText={this.state.searchText}
+                    filters={this.state.filters}
                     headers={{
                         vehicleHeaders: this.state.vehicleHeaders,
                         tollHeaders: this.state.tollHeaders,
