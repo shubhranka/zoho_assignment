@@ -36,8 +36,8 @@ const AddNewVehicle = ({ onCloseClick }) => {
             const timeDiff = currentTime.getTime() - preTime.getTime();
             const minDiff = timeDiff / (1000 * 60);
             if (minDiff <= 60) {
-                tarrif = tolls[tollName].tarrifs[vehicleType + "Return"];
-            } else tarrif = tolls[tollName].tarrifs[vehicleType + "Single"];
+                tarrif = tolls[tollName].tarrifs[vehicles[vehicleNumber].type + "Return"];
+            } else tarrif = tolls[tollName].tarrifs[vehicles[vehicleNumber].type + "Single"];
         } else {
             tarrif = tolls[tollName].tarrifs[vehicleType + "Single"];
         }
@@ -55,8 +55,8 @@ const AddNewVehicle = ({ onCloseClick }) => {
             const timeDiff = currentTime.getTime() - preTime.getTime();
             const minDiff = timeDiff / (1000 * 60);
             if (minDiff <= 60) {
-                tarrif = tollNames[tollName].tarrifs[vehicleType + "Return"];
-            } else tarrif = tolls[tollName].tarrifs[vehicleType + "Single"];
+                tarrif = tolls[tollName].tarrifs[vehicles[vehicleNumber].type + "Return"];
+            } else tarrif = tolls[tollName].tarrifs[vehicles[vehicleNumber].type + "Single"];
 
         } else {
             tarrif = tolls[tollName].tarrifs[vehicleType + "Single"];
@@ -73,6 +73,7 @@ const AddNewVehicle = ({ onCloseClick }) => {
             tollName,
             dateTime,
             tarrif,
+            vehicleType
         }
         dispatch(logsActions.addLog(payload));
         dispatch(vehicleActions.addVehicle(payloadVehicle));

@@ -72,14 +72,19 @@ class Landing extends Component {
                     tollPage={this.state.tollPage}
                     tollClick={this.setPage}
                 />
-                {this.state.vehiclePage && (
-                    <Table headers={this.state.vehicleHeaders} />
+                <Table
+                    headers={{
+                        vehicleHeaders: this.state.vehicleHeaders,
+                        tollHeaders: this.state.tollHeaders,
+                    }}
+                    tollsPage={this.state.tollPage}
+                />
+                {this.state.newToll && (
+                    <AddNewToll onCloseClick={this.setNewTollFalse} />
                 )}
-                {this.state.tollPage && (
-                    <Table headers={this.state.tollHeaders} />
+                {this.state.newVehicle && (
+                    <AddNewVehicle onCloseClick={this.setNewVehicleFalse} />
                 )}
-                {this.state.newToll && <AddNewToll onCloseClick={this.setNewTollFalse}/>}
-                {this.state.newVehicle && <AddNewVehicle onCloseClick={this.setNewVehicleFalse}/>}
             </div>
         );
     }
