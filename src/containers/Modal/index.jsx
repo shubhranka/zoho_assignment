@@ -1,4 +1,3 @@
-import MyButton from "../../components/MyButton";
 import "./index.css";
 const Modal = ({ children, headerText, footerText,onCloseClick }) => {
     return (
