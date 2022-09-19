@@ -28,7 +28,7 @@ const AddNewVehicle = ({ onCloseClick }) => {
 
     let tarrif = "";
     const dispatch = useDispatch();
-    if (validVehicleNumber) {
+    if (validVehicleNumber && tollNames.length > 0) {
         const myVehicleType = typeDefault ? vehicles[vehicleNumber].type : vehicleType;
         if (typeDefault && vehicles[vehicleNumber].tolls[tollName]) {
             const currentTime = new Date();
@@ -44,6 +44,9 @@ const AddNewVehicle = ({ onCloseClick }) => {
     }
     const handleAddNewVehicleSubmit = (e) => {
         e.preventDefault();
+        if(tollNames.length === 0){
+            return;
+        }
         const myVehicleType = typeDefault ? vehicles[vehicleNumber].type : vehicleType;
         let dateTime = new Date();
         const payloadVehicle = {
@@ -85,8 +88,8 @@ const AddNewVehicle = ({ onCloseClick }) => {
     return (
         <Modal headerText={"Add New Entry"} onCloseClick={onCloseClick}>
             <form className="form-group" onSubmit={handleAddNewVehicleSubmit}>
-                <div className="toll-name">
-                    <div>
+                { tollNames.length >0 && <div className="toll-name">
+                     <div>
                         Select Toll Name<span className="astrik">*</span>
                     </div>
                     <select
@@ -100,7 +103,8 @@ const AddNewVehicle = ({ onCloseClick }) => {
                             </option>
                         ))}
                     </select>
-                </div>
+                </div>}
+                {tollNames.length === 0 && <div className="toll-name"><MyInput placeholder={"No toll found"} required disabled={true}/></div>}
                 <div className="vehicle-type">
                     <div>
                         Select Vehicle Type<span className="astrik">*</span>
@@ -140,7 +144,7 @@ const AddNewVehicle = ({ onCloseClick }) => {
                     </div>
                     <MyInput id={"tariff"} disabled={true} value={tarrif} />
                 </div>
-                <MyButton text={"Add Entry"} />
+                <MyButton text={"Add Entry"} disabled={tollNames.length===0} />
             </form>
         </Modal>
     );
