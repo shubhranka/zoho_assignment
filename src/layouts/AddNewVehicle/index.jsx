@@ -78,7 +78,6 @@ const AddNewVehicle = ({ onCloseClick }) => {
             tarrif,
             vehicleType:myVehicleType
         }
-        console.log(payload,payloadVehicle);
         dispatch(logsActions.addLog(payload));
         onCloseClick();
     };
