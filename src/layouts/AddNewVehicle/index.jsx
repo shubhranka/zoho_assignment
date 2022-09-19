@@ -29,6 +29,7 @@ const AddNewVehicle = ({ onCloseClick }) => {
     let tarrif = "";
     const dispatch = useDispatch();
     if (validVehicleNumber) {
+        const myVehicleType = typeDefault ? vehicles[vehicleNumber].type : vehicleType;
         if (typeDefault && vehicles[vehicleNumber].tolls[tollName]) {
             const currentTime = new Date();
             const preTime = new Date(vehicles[vehicleNumber].tolls[tollName]);
@@ -38,17 +39,18 @@ const AddNewVehicle = ({ onCloseClick }) => {
                 tarrif = tolls[tollName].tarrifs[vehicles[vehicleNumber].type + "Return"];
             } else tarrif = tolls[tollName].tarrifs[vehicles[vehicleNumber].type + "Single"];
         } else {
-            tarrif = tolls[tollName].tarrifs[vehicleType + "Single"];
+            tarrif = tolls[tollName].tarrifs[myVehicleType + "Single"];
         }
     }
     const handleAddNewVehicleSubmit = (e) => {
         e.preventDefault();
+        const myVehicleType = typeDefault ? vehicles[vehicleNumber].type : vehicleType;
         let dateTime = new Date();
         const payloadVehicle = {
             vehicleNumber,
             tollName,
-            dateTime,
-            vehicleType,
+            dateTime : dateTime.toLocaleString(),
+            vehicleType:myVehicleType,
         };
         let tarrif = "";
         if (typeDefault && vehicles[vehicleNumber].tolls[tollName]) {
@@ -61,20 +63,22 @@ const AddNewVehicle = ({ onCloseClick }) => {
             } else tarrif = tolls[tollName].tarrifs[vehicles[vehicleNumber].type + "Single"];
 
         } else {
-            tarrif = tolls[tollName].tarrifs[vehicleType + "Single"];
+            tarrif = tolls[tollName].tarrifs[myVehicleType + "Single"];
         }
-        if(typeDefault)
+        if(typeDefault){
             dispatch(vehicleActions.updateVehicle(payloadVehicle));
+        }
         else
             dispatch(vehicleActions.addVehicle(payloadVehicle));
-        dateTime = dateTime.toString();
+        dateTime = dateTime.toLocaleString();
         const payload = {
             vehicleNumber,
             tollName,
             dateTime,
             tarrif,
-            vehicleType
+            vehicleType:myVehicleType
         }
+        console.log(payload,payloadVehicle);
         dispatch(logsActions.addLog(payload));
         onCloseClick();
     };

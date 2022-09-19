@@ -2,7 +2,26 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const vehicleSlice = createSlice({
     name: "vehicle",
-    initialState: {},
+    initialState: {
+        "TN24AQ4644":{
+            type: "car",
+            tolls:{
+                Chengalpattu: (new Date()).toLocaleString(),
+            }
+        },
+        "TN19QQ1234":{
+            type: "car",
+            tolls:{
+                Kappalur: (new Date()).toLocaleString(),
+            }
+        },
+        "TN24AA1235":{
+            type: "heavy",
+            tolls:{
+                Kappalur: (new Date()).toLocaleString(),
+            }
+        }
+    },
     reducers: {
         addVehicle: (state, action) => {
             state[action.payload.vehicleNumber] = {
