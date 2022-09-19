@@ -29,7 +29,8 @@ tr{
 
 .delteButton{
     position: absolute;
-    right: -10rem;
+    /* right: -10rem; */
+    right: 3rem;
     top: 50%;
     transform: translateY(-50%);
     border: none;
@@ -40,6 +41,7 @@ tr{
     cursor: pointer;
     opacity: .3;
     transition: opacity .2s ;
+    width: 1rem;
 }
 
 .delteButton:hover{
