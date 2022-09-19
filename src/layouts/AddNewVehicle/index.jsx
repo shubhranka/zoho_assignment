@@ -44,7 +44,12 @@ const AddNewVehicle = ({ onCloseClick }) => {
     const handleAddNewVehicleSubmit = (e) => {
         e.preventDefault();
         let dateTime = new Date();
-        let payloadVehicle = null;
+        const payloadVehicle = {
+            vehicleNumber,
+            tollName,
+            dateTime,
+            vehicleType,
+        };
         let tarrif = "";
         if (typeDefault && vehicles[vehicleNumber].tolls[tollName]) {
             const currentTime = dateTime;
@@ -58,13 +63,11 @@ const AddNewVehicle = ({ onCloseClick }) => {
         } else {
             tarrif = tolls[tollName].tarrifs[vehicleType + "Single"];
         }
+        if(typeDefault)
+            dispatch(vehicleActions.updateVehicle(payloadVehicle));
+        else
+            dispatch(vehicleActions.addVehicle(payloadVehicle));
         dateTime = dateTime.toString();
-        payloadVehicle = {
-            vehicleNumber,
-            tollName,
-            dateTime,
-            vehicleType,
-        };
         const payload = {
             vehicleNumber,
             tollName,
@@ -73,7 +76,6 @@ const AddNewVehicle = ({ onCloseClick }) => {
             vehicleType
         }
         dispatch(logsActions.addLog(payload));
-        dispatch(vehicleActions.addVehicle(payloadVehicle));
         onCloseClick();
     };
 
@@ -126,6 +128,7 @@ const AddNewVehicle = ({ onCloseClick }) => {
                         regex={"[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}"}
                         value={vehicleNumber}
                         setValue={setVehicleNumber}
+                        err={(validVehicleNumber||vehicleNumber==="") ? "" : "Invalid Vehicle Number - valid eg: KA23CA1234"}
                     />
                 </div>
                 <div className="tariff">

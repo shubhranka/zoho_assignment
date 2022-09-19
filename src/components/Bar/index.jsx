@@ -17,7 +17,7 @@ const Bar = ({
     setSearchText,
     searchText
 }) => {
-    const tollNames = useSelector((state) => state.logsReducer.data.map(log=>log.tollName));
+    const tollNames = Array.from(new Set(useSelector((state) => state.logsReducer.data.map(log=>log.tollName))));
     return (
         <div className="bar">
             <div className="left">

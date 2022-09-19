@@ -10,6 +10,9 @@ const vehicleSlice = createSlice({
                 tolls: { [action.payload.tollName]: action.payload.dateTime },
             };
         },
+        updateVehicle: (state, action) => {
+            state[action.payload.vehicleNumber].tolls[action.payload.tollName] = action.payload.dateTime;
+        }
     },
 });
 
